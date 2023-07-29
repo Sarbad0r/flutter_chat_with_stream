@@ -1,20 +1,31 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_chat_with_stream/screens/screens.dart';
 import 'package:flutter_chat_with_stream/theme.dart';
+import 'package:jiffy/jiffy.dart';
 
-void main() {
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  runApp( MaterialApp(
-      theme: AppTheme.light,
-      // darkTheme: AppTheme.dark,
-      home: MyApp(), debugShowCheckedModeBanner: false));
+  // await Jiffy.setLocale('ru');
+  runApp(const MyApp());
 }
 
+//if you want change the app color immediately with states, just write your own theme and put the material app
+//in stateless widget, out of main func
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return const HomeScreen();
+    debugPrint(
+        "width: ${MediaQuery.of(context).size.width} | height: ${MediaQuery.of(context).size.height}");
+    return MaterialApp(
+        //init light theme by default
+        theme: AppTheme.light,
+        //init dark theme
+        darkTheme: AppTheme.dark,
+        //here change the theme
+        themeMode: ThemeMode.dark,
+        home: const HomeScreen(),
+        debugShowCheckedModeBanner: false);
   }
 }

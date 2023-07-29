@@ -6,7 +6,7 @@ abstract class AppColors {
   static const secondary = Color(0xFF3B76F6);
   static const accent = Color(0xFFD6755B);
   static const textDark = Color(0xFF53585A);
-  static const textLigth = Color(0xFFF5F5F5);
+  static const textLight = Color(0xFFF5F5F5);
   static const textFaded = Color(0xFF9899A5);
   static const iconLight = Color(0xFFB1B4C0);
   static const iconDark = Color(0xFFB1B3C1);
@@ -48,17 +48,19 @@ class AppTheme {
           systemOverlayStyle: SystemUiOverlayStyle.dark),
       scaffoldBackgroundColor: _LightColors.background,
       elevatedButtonTheme: ElevatedButtonThemeData(
-        style: ElevatedButton.styleFrom(primary: AppColors.secondary),
-      ),
+          style: ElevatedButton.styleFrom(backgroundColor: AppColors.secondary)),
       cardColor: _LightColors.card,
-      primaryTextTheme: const TextTheme(headline6: TextStyle(color: AppColors.textDark)),
-      iconTheme: const IconThemeData(color: AppColors.iconDark), colorScheme: lightBase.colorScheme.copyWith(secondary: accentColor).copyWith(background: _LightColors.background));
+      primaryTextTheme: const TextTheme(titleLarge: TextStyle(color: AppColors.textDark)),
+      iconTheme: const IconThemeData(color: AppColors.iconDark),
+      colorScheme: lightBase.colorScheme
+          .copyWith(secondary: accentColor)
+          .copyWith(background: _LightColors.background));
 
   /// Dark theme and its settings.
   static ThemeData get dark => ThemeData(
       brightness: Brightness.dark,
       visualDensity: visualDensity,
-      textTheme: GoogleFonts.interTextTheme().apply(bodyColor: AppColors.textLigth),
+      textTheme: GoogleFonts.interTextTheme().apply(bodyColor: AppColors.textLight),
       appBarTheme: darkBase.appBarTheme.copyWith(
           backgroundColor: Colors.transparent,
           elevation: 0,
@@ -66,9 +68,12 @@ class AppTheme {
           titleTextStyle: const TextStyle(fontWeight: FontWeight.bold, fontSize: 17),
           systemOverlayStyle: SystemUiOverlayStyle.light),
       scaffoldBackgroundColor: _DarkColors.background,
-      elevatedButtonTheme:
-          ElevatedButtonThemeData(style: ElevatedButton.styleFrom(primary: AppColors.secondary)),
+      elevatedButtonTheme: ElevatedButtonThemeData(
+          style: ElevatedButton.styleFrom(backgroundColor: AppColors.secondary)),
       cardColor: _DarkColors.card,
-      primaryTextTheme: const TextTheme(headline6: TextStyle(color: AppColors.textLigth)),
-      iconTheme: const IconThemeData(color: AppColors.iconLight), colorScheme: darkBase.colorScheme.copyWith(secondary: accentColor).copyWith(background: _DarkColors.background));
+      primaryTextTheme: const TextTheme(titleLarge: TextStyle(color: AppColors.textLight)),
+      iconTheme: const IconThemeData(color: AppColors.iconLight),
+      colorScheme: darkBase.colorScheme
+          .copyWith(secondary: accentColor)
+          .copyWith(background: _DarkColors.background));
 }
