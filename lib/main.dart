@@ -4,6 +4,8 @@ import 'package:flutter_chat_with_stream/theme.dart';
 import 'package:jiffy/jiffy.dart';
 
 void main() async {
+
+
   WidgetsFlutterBinding.ensureInitialized();
   // await Jiffy.setLocale('ru');
   runApp(const MyApp());
